@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react';
 import './App.css';
 import * as Realm from 'realm-web';
 import { ProductsFields } from './utils/type';
+import { Header } from './components/Header';
+
+import 'antd/dist/antd.css';
 
 function App() {
   const [products, setProducts] = useState<Array<ProductsFields>>([]);
@@ -24,7 +27,7 @@ function App() {
   }, [])
   return (
     <div className="App">
-        hellosdsdsdds
+        <Header />
         {products && products.map((product: ProductsFields) => <p key={JSON.stringify(product.id)}>{product.title}</p>)}
     </div>
   );
