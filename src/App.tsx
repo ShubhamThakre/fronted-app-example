@@ -1,24 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useEffect, useState } from 'react';
 import './App.css';
+import * as Realm from 'realm-web';
+import { ProductsFields } from './utils/type';
 
 function App() {
+  const [products, setProducts] = useState<Array<ProductsFields>>([]);
+  useEffect(() => {
+    // console.log('hi');
+    const getProductData =async () => {
+      try {
+        const user = await app.logIn(credentials);
+        const allProducts = await user.functions.getAllProducts();
+        console.log(allProducts);
+        setProducts(allProducts);
+      } catch (error) {
+        console.log('realm error', error);
+      }  
+    }
+    const REALM_APP_ID = 'products-yhhmh';
+    const app = new Realm.App({id: REALM_APP_ID});
+    const credentials = Realm.Credentials.anonymous();
+    getProductData();
+  }, [])
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        hello
+        {products && products.map((product: ProductsFields) => <p key={JSON.stringify(product.id)}>{product.title}</p>)}
     </div>
   );
 }
