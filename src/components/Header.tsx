@@ -1,7 +1,10 @@
-import React from 'react';
-import { Row, Col } from 'antd';
+import React, { useState } from 'react';
+import { Row, Col, Menu } from 'antd';
+import { UnorderedListOutlined, ShoppingCartOutlined }  from '@ant-design/icons';
 import styled from 'styled-components';
 
+//Constants
+const { SubMenu } = Menu;
 const Wrapper = styled.div`
     padding: 0 15px;
 `;
@@ -17,6 +20,14 @@ const Title = styled.span`
     font-weight: 800;
 `;
 export const Header = () => {
+    // Constants
+    const [menuItem, setMenuItem] = useState(['mail']);
+
+    // Menu item handler function
+    // const handleClick = (e: React.ChangeEvent<HTMLInputElement>) => {
+    //     console.log('click ', e);
+    //     setMenuItem([...menuItem, e.key]);
+    // };
     return(
         <Wrapper>
             <Row>
@@ -24,10 +35,18 @@ export const Header = () => {
                     <Logo><Title>SHOP APP</Title></Logo>
                 </Col>
                 <Col xs={0} sm={8} md={12} lg={12} xl={12}>
-                MENU 
+                    {/* <Menu onClick={handleClick} selectedKeys={menuItem} mode="horizontal">
+                        <Menu.Item key="mail" icon={<UnorderedListOutlined />>
+                            Products
+                        </Menu.Item>
+                    </Menu>  */}
+                    <Menu>
+                        <Menu.Item key="products">Products</Menu.Item>
+                        <Menu.Item key="orders">Orders</Menu.Item>
+                    </Menu>
                 </Col>
                 <Col xs={12} sm={8} md={6} lg={6} xl={6}>
-                Shopping cart icons
+                    Shopping cart icons
                 </Col>
             </Row>
         </Wrapper>
