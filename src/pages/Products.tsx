@@ -2,8 +2,9 @@ import React, { useState, useEffect} from 'react'
 import * as Realm from 'realm-web';
 import { ProductsFields } from '../utils/type';
 import Product from '../components/Product';
-import { Col, Row, Card, Space} from 'antd';
+import { Col, Row, Card, Space,Pagination } from 'antd';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 const { Meta } = Card;
 
 const ProductsWrapper = styled.div`
@@ -23,6 +24,10 @@ const CardWrapper = styled.div`
 const ProductPrice = styled.span`
     font-size: 13px;
     color: #7e7e7e;
+`;
+const PaginationWrapper = styled.div`
+    text-align: center;
+    padding: 15px;
 `;
 
 const Products = () => {
@@ -56,111 +61,27 @@ const Products = () => {
             <ProductsTitle>Products</ProductsTitle>
              <Row style={{}} gutter={16}>
                 <Col className="gutter-row" span={6}>
-                    <CardWrapper>
-                        <Card
-                            hoverable
-                            style={{ maxWidth:'240px', padding:'10px' }}
-                            cover={<img alt="example" height={250} src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
-                        >
-                            <Meta title="Europe Street beat"/>
-                            <Space>
-                                <ProductPrice>Price: 250</ProductPrice>
-                                <ProductPrice>Rating: 3.9/5</ProductPrice>
-                            </Space>
-                        </Card>
-                    </CardWrapper>
+                    <Link to="/products/{id}">
+                        <CardWrapper>
+                            <Card
+                                hoverable
+                                style={{ maxWidth:'240px', padding:'10px' }}
+                                cover={<img alt="example" height={250} src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
+                            >
+                                <Meta title="Europe Street beat"/>
+                                <Space>
+                                    <ProductPrice>Price: 250</ProductPrice>
+                                    <ProductPrice>Rating: 3.9/5</ProductPrice>
+                                </Space>
+                            </Card>
+                        </CardWrapper>
+                    </Link>
                 </Col>
-                <Col className="gutter-row" span={6}>
-                    <CardWrapper>
-                        <Card
-                            hoverable
-                            style={{ maxWidth:'240px', padding:'10px' }}
-                            cover={<img alt="example" height={250} src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
-                        >
-                            <Meta title="Europe Street beat"/>
-                            <Space>
-                                <ProductPrice>Price: 250</ProductPrice>
-                                <ProductPrice>Rating: 3.9/5</ProductPrice>
-                            </Space>
-                        </Card>
-                    </CardWrapper>
-                </Col>
-                <Col className="gutter-row" span={6}>
-                    <CardWrapper>
-                        <Card
-                            hoverable
-                            style={{ maxWidth:'240px', padding:'10px' }}
-                            cover={<img alt="example" height={250} src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
-                        >
-                            <Meta title="Europe Street beat"/>
-                            <Space>
-                                <ProductPrice>Price: 250</ProductPrice>
-                                <ProductPrice>Rating: 3.9/5</ProductPrice>
-                            </Space>
-                        </Card>
-                    </CardWrapper>
-                </Col>
-                <Col className="gutter-row" span={6}>
-                    <CardWrapper>
-                        <Card
-                            hoverable
-                            style={{ maxWidth:'240px', padding:'10px' }}
-                            cover={<img alt="example" height={250} src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
-                        >
-                            <Meta title="Europe Street beat"/>
-                            <Space>
-                                <ProductPrice>Price: 250</ProductPrice>
-                                <ProductPrice>Rating: 3.9/5</ProductPrice>
-                            </Space>
-                        </Card>
-                    </CardWrapper>
-                </Col>
-                <Col className="gutter-row" span={6}>
-                    <CardWrapper>
-                        <Card
-                            hoverable
-                            style={{ maxWidth:'240px', padding:'10px' }}
-                            cover={<img alt="example" height={250} src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
-                        >
-                            <Meta title="Europe Street beat"/>
-                            <Space>
-                                <ProductPrice>Price: 250</ProductPrice>
-                                <ProductPrice>Rating: 3.9/5</ProductPrice>
-                            </Space>
-                        </Card>
-                    </CardWrapper>
-                </Col>
-                <Col className="gutter-row" span={6}>
-                    <CardWrapper>
-                        <Card
-                            hoverable
-                            style={{ maxWidth:'240px', padding:'10px' }}
-                            cover={<img alt="example" height={250} src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
-                        >
-                            <Meta title="Europe Street beat"/>
-                            <Space>
-                                <ProductPrice>Price: 250</ProductPrice>
-                                <ProductPrice>Rating: 3.9/5</ProductPrice>
-                            </Space>
-                        </Card>
-                    </CardWrapper>
-                </Col>
-                <Col className="gutter-row" span={6}>
-                    <CardWrapper>
-                        <Card
-                            hoverable
-                            style={{ maxWidth:'240px', padding:'10px' }}
-                            cover={<img alt="example" height={250} src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
-                        >
-                            <Meta title="Europe Street beat"/>
-                            <Space>
-                                <ProductPrice>Price: 250</ProductPrice>
-                                <ProductPrice>Rating: 3.9/5</ProductPrice>
-                            </Space>
-                        </Card>
-                    </CardWrapper>
-                </Col>
+                
             </Row>
+            <PaginationWrapper>
+                <Pagination defaultCurrent={1} total={50} />
+            </PaginationWrapper>
         </ProductsWrapper>
     )
 }
