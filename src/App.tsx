@@ -1,16 +1,15 @@
 import React from 'react';
-import './App.css';
-
-import Navbar from './components/Navbar';
+import styled from 'styled-components';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Navbar from './components/Navbar';
 import Products from './pages/Products';
 import Orders from './pages/Orders';
-
+import Container from './components/Container';
+import { Footer } from './components/Footer';
 
 import 'antd/dist/antd.css';
-import Container from './components/Container';
-import styled from 'styled-components';
-import { Footer } from './components/Footer';
+import './App.css';
+import { ProductDetails } from './components/ProductDetails';
 
 export const NavbarWrapper = styled.div`
   height: 50px; 
@@ -41,8 +40,8 @@ function App() {
           <Routes>
             <Route path='/'  element={<Products />} />
             <Route path='/products'  element={<Products />} />
+            <Route path='/products/:id' element={<ProductDetails />} />
             <Route path='/orders' element={<Orders/>} />
-            {/* <Route path='/events' component={Events} /> */}
           </Routes>
         </Container>
       </ContainerWrapper>

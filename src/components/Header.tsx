@@ -20,14 +20,6 @@ const Title = styled.span`
     font-weight: 800;
 `;
 export const Header = () => {
-    // Constants
-    const [menuItem, setMenuItem] = useState(['mail']);
-
-    // Menu item handler function
-    // const handleClick = (e: React.ChangeEvent<HTMLInputElement>) => {
-    //     console.log('click ', e);
-    //     setMenuItem([...menuItem, e.key]);
-    // };
     return(
         <Wrapper>
             <Row>

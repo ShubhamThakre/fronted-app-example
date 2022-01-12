@@ -49,6 +49,7 @@ const Products = () => {
         const credentials = Realm.Credentials.anonymous();
         getProductData();
     }, [])
+
     return (
         // <Row style={{padding:'0 120px'}} gutter={16}>
         //     { products && 
@@ -60,9 +61,14 @@ const Products = () => {
         <ProductsWrapper>
             <ProductsTitle>Products</ProductsTitle>
              <Row style={{}} gutter={16}>
-                <Col className="gutter-row" span={6}>
-                    <Link to="/products/{id}">
-                        <CardWrapper>
+             { products && 
+                products.map((product: ProductsFields) => {
+                    return <Product key={JSON.stringify(product.id)} {...product}/>
+                })
+            }
+                {/* <Col className="gutter-row" span={6}>
+                    <Link to={{pathname: "/product/id"}}>
+                        <CardWrapper onClick={onProductClick}>
                             <Card
                                 hoverable
                                 style={{ maxWidth:'240px', padding:'10px' }}
@@ -76,7 +82,7 @@ const Products = () => {
                             </Card>
                         </CardWrapper>
                     </Link>
-                </Col>
+                </Col> */}
                 
             </Row>
             <PaginationWrapper>
