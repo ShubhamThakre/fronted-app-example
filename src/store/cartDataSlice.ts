@@ -1,24 +1,14 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import {cartDataInterface, CartDataProduct }from '../types';
-// type Product = {
-//     productId: number;
-//     quantity: number;
-//     name: string;
-//     price: number;
-// }
-
-// export interface cartDataInterface {
-//   products : Array<Product>
-// }
 
 const initialState: cartDataInterface = {
     products: [
         {
-            productId:22,
-            quantity:4,
-            name:"White Gold Plated Princess",
-            price:9.99,
-            image:"https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
+          productId:22,
+          quantity:4,
+          name:"White Gold Plated Princess",
+          price:9.99,
+          image:"https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
         },
     ],
 }

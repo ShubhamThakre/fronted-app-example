@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { CartDataProduct, TableProps } from '../types';
+import { TableProps } from '../types';
 
 // Constants
 const styles = {

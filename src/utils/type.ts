@@ -7,7 +7,6 @@ export interface ProductsFields extends Products{
 export interface OrderFields extends Orders {
     _id: ObjectId;
 }
-
 export interface OrderTableFields extends OrderTableProps {
     _id: ObjectId;
 }

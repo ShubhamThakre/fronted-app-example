@@ -6,6 +6,7 @@ import styled from 'styled-components';
 import { UnorderedListOutlined, ShoppingCartOutlined }  from '@ant-design/icons';
 import Cart from '../Cart';
 
+// Constants
 const { Search } = Input;
 
 export const Nav = styled.nav`
@@ -90,8 +91,9 @@ export const Logo = styled.div`
 `;
   
 const Navbar = () => {
+  // Constants
   const [isCartOpen, setIsCartOpen] = useState(false);
-  // const onSearch = (value: string) => console.log(value);
+  
   return (
     <>
       <Row>
@@ -100,7 +102,6 @@ const Navbar = () => {
         </Col>
         <Col xs={0} sm={13} md={16} lg={16} xl={16}>
           <Nav>
-            {/* <Bars /> */}
             <NavMenu>
               <NavLink to='/products'>
                 Products
@@ -112,9 +113,7 @@ const Navbar = () => {
           </Nav>
         </Col>
         <Col xs={12} sm={8} md={6} lg={6} xl={6}>
-
           <ShoppingCart>
-            {/* <Search placeholder="input search text" onSearch={onSearch} style={{ width: 200 }} /> */}
             <ShoppingCartOutlined style={{fontSize:'30px'}} onClick={()=>setIsCartOpen(true)}/>
           </ShoppingCart>
         </Col>

@@ -4,6 +4,7 @@ import { ProductsFields } from '../utils/type';
 import { Card, Col, Space } from 'antd';
 import { Link } from 'react-router-dom';
 
+// Constants
 const { Meta } = Card;
 
 const CardWrapper = styled.div`

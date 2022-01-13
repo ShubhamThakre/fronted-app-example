@@ -27,11 +27,6 @@ export const Header = () => {
                     <Logo><Title>SHOP APP</Title></Logo>
                 </Col>
                 <Col xs={0} sm={8} md={12} lg={12} xl={12}>
-                    {/* <Menu onClick={handleClick} selectedKeys={menuItem} mode="horizontal">
-                        <Menu.Item key="mail" icon={<UnorderedListOutlined />>
-                            Products
-                        </Menu.Item>
-                    </Menu>  */}
                     <Menu>
                         <Menu.Item key="products">Products</Menu.Item>
                         <Menu.Item key="orders">Orders</Menu.Item>

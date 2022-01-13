@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
+// Constants
 const FooterTitle = styled.div`
     padding: 10px;
 `;

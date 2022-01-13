@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import * as Realm from 'realm-web';
 import { ProductsFields } from '../utils/type';
 import { PageHeader, Button, Descriptions,Typography, Image, Col, Row, Space, message } from 'antd';
@@ -11,6 +11,7 @@ import { CartDataProduct } from '../types';
 
 import styled from 'styled-components';
 
+// Constants
 const { Paragraph } = Typography;
 const ProductDetailsWrapper =styled.div`
     padding: 24px;
@@ -29,6 +30,7 @@ export const ProductDetails = () => {
     const { id } = useParams();
     const [product, setProduct] = useState<ProductsFields>();
     const [counter, setCounter] = useState<number>(1);
+    const navigate = useNavigate();
 
     // Redux Constants
     const cartProducts = useSelector((state: RootState) => state.cartData.products);
@@ -63,10 +65,8 @@ export const ProductDetails = () => {
             image:product?.image || '',
         }
         dispatch(addProductToCart(cartData));
-
-
         message.success('Product added to Cart Successfully.');
-        // window.history.back()
+        navigate("../products", { replace: true });
     }
 
     return (

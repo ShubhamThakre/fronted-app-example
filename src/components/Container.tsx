@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
+// Constants
 const Wrapper = styled.div`
     padding: 0px 15px;
 `;
@@ -10,8 +11,7 @@ const Container = ({children}: MyComponentProps) => {
     return (
         <Wrapper>
             {children}
-        </Wrapper>
-        
+        </Wrapper> 
     )
 }
 

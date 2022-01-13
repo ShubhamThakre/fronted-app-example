@@ -12,6 +12,7 @@ import 'antd/dist/antd.css';
 import './App.css';
 import { ProductDetails } from './components/ProductDetails';
 
+// Constants
 export const NavbarWrapper = styled.div`
   height: 50px; 
   top: 0; 
