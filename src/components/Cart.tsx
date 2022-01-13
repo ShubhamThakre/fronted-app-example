@@ -1,34 +1,54 @@
-import { Drawer } from 'antd'
-import React from 'react'
+import React from 'react';
+import { Button, Drawer } from 'antd';
+import { CartProps } from '../types';
+import { RootState } from '../store/store';
+import { useSelector, useDispatch } from 'react-redux';
+import styled from 'styled-components';
+import { useNavigate } from "react-router-dom";
+import { Table } from './Table';
 
-type Props = {
-    isCartOpen: boolean,
-    setIsCartOpen: (cart: boolean) => void
-}
 
-const Cart = ({isCartOpen, setIsCartOpen} : Props) => {
+// Constants
+const CartWrapper = styled.div`
+    &&& .ant-drawer-body { 
+        background: #f5f5f5
+    }
+`;
+const CartProductsWrapper = styled.div`
+    padding: 15px;
+`;
+
+const Cart = ({isCartOpen, setIsCartOpen} : CartProps) => {
+    // Redux Constants
+    const cartProducts = useSelector((state: RootState) => state.cartData.products);
+    const dispatch = useDispatch();
+
+    // Constants
+    const navigate = useNavigate();
+
+    // Checkout Function- close the modal and navigate to checkout page
+    const checkoutFunction = () => {
+        //close the model
+        setIsCartOpen(false);
+        // navigate to other route
+        navigate("../checkout", { replace: true });
+    }  
     return (
-        <div>
+        <CartWrapper>
             <Drawer
-                title="Drawer with extra actions"
+                title="Shopping Cart"
                 placement={'right'}
                 width={500}
                 onClose={()=>setIsCartOpen(false)}
                 visible={isCartOpen}
-                // extra={
-                // //   <Space>
-                // //     <Button onClick={setIsCartOpen(false)}>Cancel</Button>
-                // //     <Button type="primary" onClick={onClose}>
-                // //       OK
-                // //     </Button>
-                // //   </Space>
-                // }
             >
-                <p>Some contents...</p>
-                <p>Some contents...</p>
-                <p>Some contents...</p>
+                <CartProductsWrapper>
+                    <Table data={cartProducts}/>
+                    <br />
+                    <Button type="primary" onClick={checkoutFunction}>Checkout</Button>
+                </CartProductsWrapper>
             </Drawer>
-        </div>
+        </CartWrapper>
     )
 }
 

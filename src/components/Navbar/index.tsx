@@ -13,7 +13,7 @@ export const Nav = styled.nav`
   height: 50px;
   display: flex;
   justify-content: space-between;
-  padding: 0.2rem calc((100vw - 1000px) / 2);
+  // padding: 0.2rem calc((100vw - 1000px) / 2);
   z-index: 12;
   /* Third Nav */
   /* justify-content: flex-start; */
@@ -95,10 +95,10 @@ const Navbar = () => {
   return (
     <>
       <Row>
-        <Col xs={12} sm={8} md={6} lg={6} xl={6}>
+        <Col xs={2} sm={3} md={2} lg={2} xl={2}>
           <Logo></Logo>
         </Col>
-        <Col xs={0} sm={8} md={12} lg={12} xl={12}>
+        <Col xs={0} sm={13} md={16} lg={16} xl={16}>
           <Nav>
             {/* <Bars /> */}
             <NavMenu>

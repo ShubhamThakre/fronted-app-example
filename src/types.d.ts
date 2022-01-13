@@ -33,17 +33,34 @@ export type OrderProduct = {
     price: Number;
 }
 
+export type OrderTableProps = {
+    date: String;
+    email: String;
+    id: Number;
+    userId: Number;
+    products: Array<CartDataProduct>
+}
+export interface TableProps {
+    data: Array<CartDataProduct>
+}
+
+/** Cart */
+export type CartProps = {
+    isCartOpen: boolean,
+    setIsCartOpen: (cart: boolean) => void
+}
+export interface TableProps {
+    data: Array<CartDataProduct>
+}
+
 /** Redux */
 export type CartDataProduct = {
     productId: Number;
     quantity: Number;
     name: String;
     price: Number;
-    image: String;
+    image: string;
 }
 export interface cartDataInterface {
   products : Array<CartDataProduct>
 }
-
-// https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jp... 2
-// https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg

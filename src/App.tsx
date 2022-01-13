@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Products from './pages/Products';
 import Orders from './pages/Orders';
+import { Checkout } from './pages/Checkout';
 import Container from './components/Container';
 import { Footer } from './components/Footer';
 
@@ -41,6 +42,7 @@ function App() {
             <Route path='/'  element={<Products />} />
             <Route path='/products'  element={<Products />} />
             <Route path='/products/:id' element={<ProductDetails />} />
+            <Route path='/checkout' element={<Checkout />} />
             <Route path='/orders' element={<Orders/>} />
           </Routes>
         </Container>
